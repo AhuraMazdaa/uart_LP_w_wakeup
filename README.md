@@ -8,3 +8,8 @@ TX/RX pair. The goal is to implement a UART module capable of entering low power
 there is no common clock, we have to depend on the Tx/Rx pair to detect activity.
 
 I will also explore setting power saving techniques and provide power analysis of this design.
+
+Modules:
+uart_top.v  : Top wrapper
+uart_tx.v   : Shifts bits out, adds start and stop bits
+uart_rx.v   : Detects the start bit, checks the stop bit, samples at baud rate, shifts bits and framing error detector
