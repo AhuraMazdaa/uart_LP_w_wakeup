@@ -6,13 +6,17 @@
 //               period, already aligned to the bit rate.
 //==============================================================================
 
-module uart_tx (
+module uart_tx #(
+    parameter DATA_BITS = 8,
+    parameter STOP_BITS = 1
+)(
     input  wire       clk,
     input  wire       rst_n,
     input  wire       baud_tick,   // one pulse per bit period
     input  wire       tx_start,    // pulse to begin sending
     input  wire [7:0] tx_data,     // byte to send
     output reg        tx_busy,     // high while sending
+    output reg        tx_done,     // 1-cycle pulse when done
     output reg        tx           // serial output (idles high)
 );
 

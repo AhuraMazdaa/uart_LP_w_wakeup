@@ -3,12 +3,16 @@
 // Pending items    : Wake functionality, low power mode
 //==============================================================================
 
-module uart_rx (
+module uart_rx #(
+    parameter DATA_BITS = 8,
+    parameter STOP_BITS = 1
+)(
     input  wire       clk,
     input  wire       rst_n,
     input  wire       baud_tick,   // one pulse per bit period
     input  wire       rx,          // serial input (idles high)
     output reg  [7:0] rx_data,     // received byte
+    output reg        rx_frame_err, // high if stop bit was not high
     output reg        rx_done      // 1-cycle pulse when byte is ready
 );
 
