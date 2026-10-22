@@ -1,5 +1,7 @@
 # uart_LP_w_wakeup
-Verilog implementation of UART module with wakeup on activity functionality
+Verilog implementation of UART module with wakeup on activity functionality.
+This project was developed on a mac, cuz why not!
+Verilator + Bison + Flex + SystemC
 
 Overview
 
